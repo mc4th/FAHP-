@@ -1,0 +1,26 @@
+e=input('e:')
+Max=input('Max:')
+F=input('F:');
+%计算模糊一致阵
+N=size(F);
+r=sum(F');
+for i=1:N(1)
+  for j=1:N(2)
+    R(i,j)=(r(i)-r(j))/(2*N(1))+0.5;
+  end
+end
+E=R./R';
+%计算初始向量
+W=sum(R')./sum(sum(R));
+%利用幂法计算排序向量
+V(:,1)=W'/max(abs(W));
+for i =1:Max
+  V(:,i+1)=E*V(:,i);
+  V(:,i+1)=V(:,i+1)/max(abs(V(:,i+1)));
+  if max(abs(V(:,i+1)-V(:,i)))<e
+    k=i;
+    A=V(:,i+1)./sum(V(:,i+1));
+    break
+  Else
+  End
+End
