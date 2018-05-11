@@ -1,17 +1,19 @@
+clear;
+clc;
 e=input('e:');
 Max=input('Max:');
 F=input('F:');
 %计算模糊一致阵
-N=size(F);
-r=sum(F');
-for i=1:N(1)
-  for j=1:N(2)
+N=size(F);%返回一个行向量，输出F矩阵的行数（第一个值）和列数（第二个值）
+r=sum(F');%列求和
+for i=1:N(1)%i从1到F的行数
+  for j=1:N(2)%从1到F的列数
     R(i,j)=(r(i)-r(j))/(2*N(1))+0.5;
   end
 end
 E=R./R';
 %计算初始向量
-W=sum(R')./sum(sum(R));
+W=sum(R')./sum(sum(R));%1*4
 %利用幂法计算排序向量
 V(:,1)=W'/max(abs(W));
 for i =1:Max
