@@ -1,5 +1,5 @@
-e=input('e:')
-Max=input('Max:')
+e=input('e:');
+Max=input('Max:');
 F=input('F:');
 %计算模糊一致阵
 N=size(F);
@@ -21,6 +21,6 @@ for i =1:Max
     k=i;
     A=V(:,i+1)./sum(V(:,i+1));
     break
-  Else
-  End
-End
+  else
+  end
+end
